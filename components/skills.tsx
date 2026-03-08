@@ -23,24 +23,6 @@ const skills = [
     description: "Selenium-based Python project demonstrating automated web login, navigation, and form submission.",
     tags: ["Selenium", "Python", "ChromeDriver"],
     link: "https://github.com/Valentin-PPL/Python_Selenium_Web_Automation.git"
-  },
-  {
-    icon: Code2,
-    title: "Full-Stack Development",
-    description: "End-to-end application development with modern technologies",
-    tags: ["React", "Next.js", "Node.js", "PostgreSQL"]
-  },
-  {
-    icon: Database,
-    title: "Data Engineering",
-    description: "Processing and transforming data at scale",
-    tags: ["SQL", "ETL", "Data Pipelines", "Analytics"]
-  },
-  {
-    icon: Sparkles,
-    title: "Prompt Engineering",
-    description: "Crafting effective prompts for optimal AI model outputs",
-    tags: ["GPT-4", "Claude", "Fine-tuning", "RAG"]
   }
 ]
 
