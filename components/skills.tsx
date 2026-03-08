@@ -28,16 +28,16 @@ const skills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="projects" className="py-24 px-6 scroll-mt-32 mb-48">
       <div className="max-w-6xl mx-auto">
 
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Skills & Expertise
+            Skills & AI Projects
           </h2>
 
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
-            Exploring AI development with Python.
+            Showcasing practical AI applications that solve real-world problems.
           </p>
         </div>
 
@@ -54,8 +54,16 @@ export function Skills() {
 
                 <div className="relative">
 
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <div className="flex items-center justify-between mb-4">
+
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <skill.icon className="h-6 w-6 text-primary" />
+                  </div>
+
+                  <div className="bg-secondary/20 border border-border/30 rounded-xl px-4 py-2 text-xs font-mono text-muted-foreground">
+                    &gt; project.run()
+                  </div>
+
                   </div>
 
                   <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">

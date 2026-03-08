@@ -15,7 +15,6 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
     window.location.href = `mailto:gastonvalentino@gmail.com?subject=Contact from ${formData.name}&body=${formData.message}`
   }
 
@@ -34,13 +33,14 @@ export function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8">
+
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-6">
             <div className="p-6 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-md">
               <h3 className="font-semibold mb-4">Contact Information</h3>
-              
+
               <div className="space-y-4">
-                <a 
+                <a
                   href="mailto:gastonvalentino@gmail.com"
                   className="flex items-center gap-4 p-4 rounded-xl bg-secondary/20 border border-border/30 hover:bg-secondary/30 transition-colors group"
                 >
@@ -53,7 +53,7 @@ export function Contact() {
                   </div>
                 </a>
 
-                <a 
+                <a
                   href="tel:0760119604"
                   className="flex items-center gap-4 p-4 rounded-xl bg-secondary/20 border border-border/30 hover:bg-secondary/30 transition-colors group"
                 >
@@ -78,27 +78,38 @@ export function Contact() {
               </div>
             </div>
 
+            {/* Social Links */}
             <div className="p-6 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-md">
               <h3 className="font-semibold mb-4">Connect</h3>
+
               <div className="flex gap-3">
-                <Button variant="outline" size="icon" className="border-border/50 bg-secondary/30 hover:bg-secondary/50">
-                  <Github className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="border-border/50 bg-secondary/30 hover:bg-secondary/50">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="border-border/50 bg-secondary/30 hover:bg-secondary/50">
-                  <Mail className="h-5 w-5" />
-                </Button>
+                <a href="https://github.com/Valentin-PPL" target="_blank">
+                  <Button variant="outline" size="icon" className="border-border/50 bg-secondary/30 hover:bg-secondary/50">
+                    <Github className="h-5 w-5" />
+                  </Button>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank">
+                  <Button variant="outline" size="icon" className="border-border/50 bg-secondary/30 hover:bg-secondary/50">
+                    <Linkedin className="h-5 w-5" />
+                  </Button>
+                </a>
+
+                <a href="mailto:gastonvalentino@gmail.com">
+                  <Button variant="outline" size="icon" className="border-border/50 bg-secondary/30 hover:bg-secondary/50">
+                    <Mail className="h-5 w-5" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* CONTACT FORM REMOVED TEMPORAR */}
+          {/*
           <div className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="p-8 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-md">
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
-              
+
               <div className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
@@ -111,6 +122,7 @@ export function Contact() {
                       className="bg-secondary/30 border-border/50 focus:border-primary"
                     />
                   </div>
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
                     <Input
@@ -123,7 +135,7 @@ export function Contact() {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
                   <Textarea
@@ -143,6 +155,8 @@ export function Contact() {
               </div>
             </form>
           </div>
+          */}
+
         </div>
       </div>
     </section>

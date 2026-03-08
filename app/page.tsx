@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Skills } from "@/components/skills"
-import { Projects } from "@/components/projects"
+{/* import { Projects } from "@/components/projects" */}
 import { GitHubSection } from "@/components/github-section"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -19,7 +19,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Skills />
-        <Projects />
+        {/* <Projects /> */}
         <GitHubSection />
         <Contact />
         <Footer />
