@@ -35,12 +35,11 @@ export function Hero() {
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium">
-          AI Developer & Automation Engineer
+          Focused on Python development for AI
         </p>
         
         <p className="text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-10 text-pretty">
-          Building intelligent tools that transform workflows. Specializing in AI-powered applications, 
-          command-line interfaces, and automation systems.
+          Python • LangChain • OpenAI API • FastAPI • Automation • Git • Prompt Engineering • Technical Troubleshooting • Incident Management
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
