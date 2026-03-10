@@ -7,15 +7,37 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 export function Contact() {
-  const [formData, setFormData] = useState({
+
+  const [form, setForm] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: any) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
-    window.location.href = `mailto:gastonvalentino@gmail.com?subject=Contact from ${formData.name}&body=${formData.message}`
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    })
+
+    if (res.ok) {
+      alert("Message sent successfully!")
+      setForm({ name: "", email: "", message: "" })
+    } else {
+      alert("Something went wrong.")
+    }
   }
 
   return (
@@ -89,7 +111,7 @@ export function Contact() {
                   </Button>
                 </a>
 
-                <a href="https://linkedin.com" target="_blank">
+                <a href="https://linkedin.com/in/valentinbucur" target="_blank">
                   <Button variant="outline" size="icon" className="border-border/50 bg-secondary/30 hover:bg-secondary/50">
                     <Linkedin className="h-5 w-5" />
                   </Button>
@@ -104,46 +126,47 @@ export function Contact() {
             </div>
           </div>
 
-          {/* CONTACT FORM REMOVED TEMPORAR */}
-          {/*
+          {/* Contact Form */}
           <div className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="p-8 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-md">
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
 
               <div className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
+
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+                    <label className="block text-sm font-medium mb-2">Name</label>
                     <Input
-                      id="name"
+                      name="name"
                       placeholder="Your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      value={form.name}
+                      onChange={handleChange}
                       className="bg-secondary/30 border-border/50 focus:border-primary"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                    <label className="block text-sm font-medium mb-2">Email</label>
                     <Input
-                      id="email"
+                      name="email"
                       type="email"
                       placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      value={form.email}
+                      onChange={handleChange}
                       className="bg-secondary/30 border-border/50 focus:border-primary"
                     />
                   </div>
+
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                  <label className="block text-sm font-medium mb-2">Message</label>
                   <Textarea
-                    id="message"
+                    name="message"
                     placeholder="Tell me about your project..."
                     rows={6}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    value={form.message}
+                    onChange={handleChange}
                     className="bg-secondary/30 border-border/50 focus:border-primary resize-none"
                   />
                 </div>
@@ -152,10 +175,10 @@ export function Contact() {
                   Send Message
                   <Send className="ml-2 h-4 w-4" />
                 </Button>
+
               </div>
             </form>
           </div>
-          */}
 
         </div>
       </div>
