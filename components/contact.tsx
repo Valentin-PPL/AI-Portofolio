@@ -14,6 +14,9 @@ export function Contact() {
     message: "",
   })
 
+  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState("")
+
   const handleChange = (e: any) => {
     setForm({
       ...form,
@@ -24,6 +27,9 @@ export function Contact() {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
+    setLoading(true)
+    setStatus("")
+
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: {
@@ -33,11 +39,13 @@ export function Contact() {
     })
 
     if (res.ok) {
-      alert("Message sent successfully!")
+      setStatus("success")
       setForm({ name: "", email: "", message: "" })
     } else {
-      alert("Something went wrong.")
+      setStatus("error")
     }
+
+    setLoading(false)
   }
 
   return (
@@ -171,10 +179,26 @@ export function Contact() {
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Send Message
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  {loading ? "Sending..." : "Send Message"}
                   <Send className="ml-2 h-4 w-4" />
                 </Button>
+
+                {status === "success" && (
+                  <p className="text-green-500 text-sm mt-3">
+                    Message sent successfully!
+                  </p>
+                )}
+
+                {status === "error" && (
+                  <p className="text-red-500 text-sm mt-3">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
 
               </div>
             </form>
